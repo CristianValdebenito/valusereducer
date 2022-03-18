@@ -49,12 +49,12 @@ const ReducerPrueba = (props) => {
                         }   
                     }
             case "EMAIL":
-                if(action.email.length<7)
+                if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(action.email))
                 {
                     return {
                         ...state,
                         email: action.email,
-                        error_email: "debe ingresar un mail mayor o igual a 6 caracteres"
+                        error_email: "Verifique el formato del email ingresado"
                     } 
                 }  
                     else{
@@ -65,7 +65,7 @@ const ReducerPrueba = (props) => {
                         }   
                     }
             case "SUBMIT":
-                if(state.name.length>2 && state.apellido.length>4 && state.email.length>6)
+                if(state.name.length>2 && state.apellido.length>4 && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email))
                 {
                     return{
                         ...state,
