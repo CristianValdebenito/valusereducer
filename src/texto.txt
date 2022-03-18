@@ -1,0 +1,13 @@
+if(!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(name)){
+            console.log("🚀 ~ file: userValidations.js ~ line 61 ~ UserValidations ~ validateRut ~ name", name)
+
+            return {
+                status: false,
+                err: 'Debes ingresar un rut correcto'
+            } 
+        } else {
+            return {
+                status: true,
+                err: ''
+            }
+        }
